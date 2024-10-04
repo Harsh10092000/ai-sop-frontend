@@ -26,7 +26,7 @@ const AiGen = () => {
     stu_wordLimit: "3000"
   });
 
-  const [promptMsg, setPromptMsg] = useState("genrate SOP");
+  const [promptMsg, setPromptMsg] = useState("genrate SOP ");
   const [sampleFormat, setSampleormat] = useState(`Sample : 
 
      Introduction
@@ -102,7 +102,9 @@ Anirudh Singh .......... use this format`);
     setRes("");
     setLoader(true);
     axios
-      .post("https://sopapi.propertyease.in/generate-sop", {
+      //.post("http://localhost:3000/generate-sop", {
+        .post("https://sopapi.propertyease.in/generate-sop", {
+        
         input1: studentData,
         input2: sampleFormat,
         input3: promptMsg,
@@ -119,6 +121,23 @@ Anirudh Singh .......... use this format`);
   //console.log("loader : " ,loader);
   //console.log(res);
   
+  const [copySuccess, setCopySuccess] = useState('');
+
+  const handleCopy = () => {
+    //console.log(data.props.children , data.props);
+    //const textToCopy = "https://propertyease.in/";
+    const textToCopy = targetRef.current.innerText;
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        setCopySuccess('Copied!');
+        setTimeout(() => setCopySuccess(''), 2000); 
+      })
+      .catch((err) => {
+        console.error('Failed to copy text: ', err);
+        setCopySuccess('Failed to copy');
+      });
+  };
+
 
   return (
     <div>
@@ -134,7 +153,7 @@ Anirudh Singh .......... use this format`);
           <div className="main-heading">AI SOP Generator</div>
           <div className="main-content">
             
-            Use the form below to provide your personal and academic details. Once completed, click "Submit" to generate your Statement of Purpose (SOP) based on the provided information. Ensure all fields are filled out accurately to receive the best results.
+            Use the form below to provide your personal and academic details. Once completed, click "Generate SOP" to generate your Statement of Purpose (SOP) based on the provided information. Ensure all fields are filled out accurately to receive the best results.
           </div>
           <div
             data-orientation="horizontal"
@@ -346,16 +365,33 @@ Anirudh Singh .......... use this format`);
           </div>
 
 
-          <div onClick={handleSubmit} className="btn sub_btn">Submit</div>
+          <div onClick={handleSubmit} className="btn sub_btn pointer">Generate SOP</div>
 
         </div>
       </div>
      
 
-      <div ref={targetRef} className="res-text">
-        <ReactMarkDown>{res.text}</ReactMarkDown>
+{res !== "" &&
+      <div ref={targetRef} className="res-text form-module">
+       
+        <div className="copy-content d-flex pointer" onClick={ handleCopy}>
+                
+
+                <div>
+                  {copySuccess == "" ? 
+                  <div className="share-type-name">Copy To clipboard</div>
+                  : 
+                  <div className="share-type-name">Copied To clipboard</div>
+                  }
+                  
+                </div>
+              </div>
+               <ReactMarkDown>{res.text}</ReactMarkDown>
+        
       </div>
+      }
     </div>
+                
   );
 };
 

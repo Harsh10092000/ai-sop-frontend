@@ -34,8 +34,8 @@
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration: .15s;
     width: 100%;
-    /* padding-left: 15px;
-    padding-right: 15px; */
+    padding-left: 15px;
+    padding-right: 15px;
     background-color: transparent;
     /* border-color: #e4e4e7 !important; */
     border-width: 1px;
@@ -108,7 +108,7 @@
 .sub_btn {
   background-color: black;
   color: white;
-  width: 110px;
+  width: 130px;
   border-radius: 6px;
   padding: 10px 20px;
   text-align: center;
@@ -155,4 +155,21 @@
   left: 50%;
   top: 50%;
   z-index: 3;
+}
+
+.copy-content {
+  background-color: aliceblue;
+    width: 170px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #155fa0;
+}
+
+.pointer {
+  cursor: pointer;
 }
