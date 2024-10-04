@@ -23,7 +23,7 @@ const AiGen = () => {
     stu_familyDetails: "",
     stu_academicDetails: "",
     stu_interests: "",
-    stu_wordLimit: ""
+    stu_wordLimit: "3000"
   });
 
   const [promptMsg, setPromptMsg] = useState("genrate SOP 4000 words");
@@ -336,6 +336,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_wordLimit}
               onChange={(e) => {
                 setStudentData({ ...studentData, stu_wordLimit: e.target.value });
               }}
