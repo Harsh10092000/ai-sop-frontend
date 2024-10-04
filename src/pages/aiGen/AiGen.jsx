@@ -26,7 +26,7 @@ const AiGen = () => {
     stu_wordLimit: "3000"
   });
 
-  const [promptMsg, setPromptMsg] = useState("genrate SOP 4000 words");
+  const [promptMsg, setPromptMsg] = useState("genrate SOP");
   const [sampleFormat, setSampleormat] = useState(`Sample : 
 
      Introduction
