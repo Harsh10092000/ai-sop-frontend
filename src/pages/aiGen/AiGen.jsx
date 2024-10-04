@@ -102,7 +102,7 @@ Anirudh Singh .......... use this format`);
     setRes("");
     setLoader(true);
     axios
-      .post("http://localhost:3000/generate-sop", {
+      .post("https://sopapi.propertyease.in/generate-sop", {
         input1: studentData,
         input2: sampleFormat,
         input3: promptMsg,
