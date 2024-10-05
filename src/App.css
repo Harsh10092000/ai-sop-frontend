@@ -14,7 +14,7 @@
 }
 
 .res-text {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
@@ -44,9 +44,17 @@
     line-height: 1.25rem;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     box-sizing: border-box;
     box-shadow: 0 0 #0000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 0 #0000;
+
+
+    border: 1px solid rgb(203 213 225 / 1); 
+    color: rgb(104 118 135 /1);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.25rem;
+    font-family: Public Sans,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 .mar_right {
@@ -55,6 +63,7 @@
 
 .two-fields {
   display: flex;
+  padding-bottom: 10px;
 }
 
 .input-field-wrapper {
@@ -79,6 +88,29 @@
 .form-module-wrapper {
   padding: 20px 60px;
   /* padding-right: 100px; */
+}
+
+
+.form-module-v-2 {
+  padding: 40px 40px 64px 40px;
+  margin: 50px 0px;
+  box-sizing: border-box;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.form-module-wrapper-v-2 {
+  padding: 0px 20px;
+  /* padding-right: 100px; */
+}
+
+.form-module-padding-v-2 {
+  padding: 0px 50px;
+}
+
+.main {
+  padding: 60px;
+  padding-bottom: 0px;
 }
 
 .form-header {
@@ -106,15 +138,65 @@
 }
 
 .sub_btn {
-  background-color: black;
+  background-color: #1e1d85;
   color: white;
-  width: 130px;
+  width: 170px;
   border-radius: 6px;
   padding: 10px 20px;
   text-align: center;
   font-weight: 600;
   font-size: 18px;
   margin-top: 10px;
+  margin-right: 15px;
+  float: right;
+}
+
+.second_btn {
+  background-color: #ccc;
+  color: black;
+  /* width: 170px; */
+  border-radius: 6px;
+  padding: 10px 25px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 15px;
+  float: right;
+}
+
+.second_btn:hover {
+  background-color: #ccc;
+  color: black;
+  border: 1px solid;
+}
+
+.second_btn-red {
+  color: #dd1d1d;
+  background-color: #ffd7d7;
+}
+
+.second_btn-green {
+  background-color: #c9f0db;
+    color: green;
+}
+
+
+
+.sub_btn:hover {
+  background-color: #f8f8f8;
+  color: #0a5699;
+  width: 170px;
+  border-radius: 6px;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 15px;
+  float: right;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: 1px solid #0a5699;
 }
 
 
@@ -159,7 +241,7 @@
 
 .copy-content {
   background-color: aliceblue;
-    width: 170px;
+    width: 200px;
     padding: 10px 15px;
     border-radius: 6px;
     
@@ -172,4 +254,122 @@
 
 .pointer {
   cursor: pointer;
+}
+
+/* .pro_radio_btn_1 {
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin: 0 15px 12px 0;
+  transition: all .2s ease-out 0s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+} */
+
+.pro_radio_btn_1 {
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 16px;
+  padding: 6px 12px;
+  margin: 0 15px 12px 0;
+  transition: all .2s ease-out 0s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.radio_brn-mian {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pro_heading {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #000;
+  display: block;
+  text-align: left;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.pro_selected {
+  background-color: #cfecf7;
+  font-weight: 600;
+  border-color: #62c1e5;
+  color: #000;
+}
+
+.side-bar-wrapper {
+  padding: 2px 5px;
+}
+
+.side-bar-item {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.side-bar-item-selected {
+  background: #cee6fc;
+  color: #0a5699;
+  font-weight: 500;
+}
+
+.side-bar-item:hover {
+background-color: #f8f8f8;
+}
+
+.side-bar {
+  padding: 0px 20px
+}
+
+.side-bar-main {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.pro_flex  {
+  width: 100%;
+}
+
+.select_dropdown {
+  height: 41.5px;
+}
+
+.checkbox-field {
+  margin-right: 10px;
+  margin-top: 5px;
+  border: 1px solid;
+}
+
+.delete-btn {
+  border: 1px solid rgb(203 213 225 / 1);
+    height: 41px;
+    padding: 6px 12px 10px 12px;
+    padding-top: 6px;
+    border-radius: 5px;
+
+
+    border: 1px solid #dc3545; 
+    color: rgb(104 118 135 /1);
+    color: #dc3545;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.margin-right-16 {
+  margin-right: 16px;
+}
+
+
+.work-exp-box {margin-bottom: 16px;
+    border-radius: 5px;
+    padding: 20px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-right: 15px;
 }

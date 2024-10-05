@@ -7,9 +7,40 @@ const Label = ({ label_val }) => {
   return <label className="input-field-label">{label_val}</label>;
 };
 
+
+// field_item={propertyData.pro_open_sides}
+//                               field_item_val="pro_open_sides"
+//                               propertyData={propertyData}
+//                               setPropertyData={setPropertyData}
+
+
+                              
+
+
+
+
+const NameField = ({ value, studentData , stu_data_obj, placeholder_val, custom_css1, custom_css2, setStudentData  }) => {
+  return <div className={`input-field-wrapper ${custom_css1}`}>
+  {/* <Label label_val=" University/Institute Name
+  
+   /> */}
+  <input
+    type="text"
+    className={`${custom_css2}`}
+    value={value}
+    placeholder={placeholder_val}
+    onChange={(e) => {
+      setStudentData({ ...studentData, stu_data_obj: e.target.value });
+    }}
+  />
+</div>
+};
+
+
+
 const AiGen = () => {
   const [loader, setLoader] = useState(false);
-  const [studentData, setStudentData] = useState({
+  const [studentData1, setStudentData1] = useState({
     stu_universityCountry: "",
     stu_universityName: "",
     stu_courseName: "",
@@ -44,7 +75,7 @@ Thank you for considering my application.
 Sincerely,
 Anirudh Singh .......... use this format`);
 
-  const [studentDat1, setStudentData1] = useState({
+  const [studentData, setStudentData] = useState({
     stu_universityCountry: "Canada",
     stu_universityName: "University of Toronto",
     stu_courseName: "Computer Science",
@@ -58,36 +89,9 @@ Anirudh Singh .......... use this format`);
     stu_familyDetails: "One younger sister, Alice Doe.",
     stu_academicDetails: "Graduated from High School with Honors.",
     stu_interests: "Coding, Gaming, and Reading.",
-     stu_wordLimit: ""
+     stu_wordLimit: "3000"
   });
 
-  //   const [text, setText] = useState(`Please check the below sample!
-
-  // Please mention University/Institute Name: University of London
-
-  // Enter course name here: MBA in Marketing
-
-  // Enter name of the student: Anirudh Singh
-
-  // Write birthdate of the student in dd.mm.yyyy format: 21.10.1999
-
-  // Write address of the student: 10/B AchintNagar, Bhowanipur, Kolkata 700025 West Bengal
-
-  // Enter Father’s Name: Mayank Singh
-
-  // Enter Mother’s Name: Mita Singh
-
-  // Enter Father’s Occupation: Textile Business
-
-  // Enter Mother’s Occupation: Housewife
-
-  // Enter other family details like siblings or anything important except Father and Moth Details: Sister studying BBA
-
-  // Enter Academic Details: BBA with 80% Marks from the University of Calcutta
-
-  // Mention the interests of the students: Playing online games, public speaking
-
-  // genrate SOP  `);
   const [res, setRes] = useState("");
 
   const targetRef = useRef(null);
@@ -102,8 +106,8 @@ Anirudh Singh .......... use this format`);
     setRes("");
     setLoader(true);
     axios
-      //.post("http://localhost:3000/generate-sop", {
-        .post("https://sopapi.propertyease.in/generate-sop", {
+      .post("http://localhost:3000/generate-sop", {
+        //.post("https://sopapi.propertyease.in/generate-sop", {
         
         input1: studentData,
         input2: sampleFormat,
@@ -171,17 +175,21 @@ Anirudh Singh .......... use this format`);
               <input
                 type="text"
                 className="input-field"
+                value={studentData.stu_universityName}
                 onChange={(e) => {
-                  setStudentData({ ...studentData, stu_u: e.target.value });
+                  setStudentData({ ...studentData, stu_universityName: e.target.value });
                 }}
               />
             </div>
 
+
+
             <div className="input-field-wrapper ">
-              <Label label_val=" University Location" />
+              {/* <Label label_val=" University Location" /> */}
               <input
                 type="text"
                 className="input-field"
+                value={studentData.stu_universityCountry}
                 onChange={(e) => {
                   setStudentData({
                     ...studentData,
@@ -200,6 +208,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_name}
               onChange={(e) => {
                 setStudentData({ ...studentData, stu_name: e.target.value });
               }}
@@ -210,6 +219,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_courseName}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -227,6 +237,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_fatherName}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -241,6 +252,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_motherName}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -258,6 +270,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_fatherOccupation}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -272,6 +285,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_motherOccupation}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -288,6 +302,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_familyDetails}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -302,6 +317,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_academicDetails}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -316,6 +332,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="text"
               className="input-field"
+              value={studentData.stu_interests}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
@@ -329,6 +346,7 @@ Anirudh Singh .......... use this format`);
             <Label label_val="Student Address" />
             <input
               type="text"
+              value={studentData.stu_address}
               className="input-field"
               onChange={(e) => {
                 setStudentData({ ...studentData, stu_address: e.target.value });
@@ -342,6 +360,7 @@ Anirudh Singh .......... use this format`);
             <input
               type="date"
               className="input-field"
+              value={studentData.stu_birthDate}
               onChange={(e) => {
                 setStudentData({
                   ...studentData,
