@@ -253,7 +253,7 @@ Anirudh Singh .......... use this format only , not this data`);
 
     stu_academicDetails_un: "",
     stu_academicDetails_degree: "",
-    stu_academicDetails_year: "2",
+    stu_academicDetails_year: "",
     stu_academicDetails_gpa: "",
     stu_academicDetails_subjects: "",
     stu_academicDetails_awards: "",
