@@ -20,7 +20,7 @@ const Label = ({ label_val }) => {
   }) => {
     return (
       <div className={`input-field-wrapper ${custom_css1}`}>
-        {console.log("stu_data_obj , value : ", stu_data_obj, value)}
+        
   
         <input
           type="text"
@@ -220,14 +220,14 @@ Anirudh Singh .......... use this format only , not this data`);
 
   const [studentData, setStudentData] = useState({
     // ############### step1 ###############
-    stu_name: "John Doe",
-    stu_city: "Kurukshetra",
-    stu_phone: "9078563421",
-    stu_country: "India",
-    stu_degreeLevel: "Bachelor's",
-    stu_interested_field: "Computer Science",
-    stu_interested_specialization: "Artificial Intelligence",
-    stu_universityName: "University of Toronto",
+    stu_name: "",
+    stu_city: "",
+    stu_phone: "",
+    stu_country: "",
+    stu_degreeLevel: "",
+    stu_interested_field: "",
+    stu_interested_specialization: "",
+    stu_universityName: "",
     // stu_name: "",
     // stu_city: "",
     // stu_phone: "",
@@ -237,11 +237,11 @@ Anirudh Singh .......... use this format only , not this data`);
     // stu_interested_specialization: "",
     // stu_universityName: "",
 
-    stu_fatherName: "Rajesh Doe",
-    stu_motherName: "Anita Doe",
-    stu_fatherOccupation: "Engineer",
-    stu_motherOccupation: "Teacher",
-    stu_familyDetails: "One younger sister, Priya.",
+    stu_fatherName: "",
+    stu_motherName: "",
+    stu_fatherOccupation: "",
+    stu_motherOccupation: "",
+    stu_familyDetails: "",
 
     // stu_fatherName: "",
     // stu_motherName: "",
@@ -523,6 +523,8 @@ Anirudh Singh .......... use this format only , not this data`);
                         className="input-field mar_right select_dropdown"
                         name="cars"
                         id="cars"
+                        value={studentData.stu_country}
+                        onChange={(e) => setStudentData({ ...studentData, stu_country: e.target.value })}
                       >
                         {countryList.map((item) => (
                           <option value={item.name}>{item.name}</option>
@@ -601,7 +603,7 @@ Anirudh Singh .......... use this format only , not this data`);
                         value={studentData.stu_universityName}
                         studentData={studentData}
                         stu_data_obj="stu_universityName"
-                        placeholder="University/Institute Name"
+                        placeholder="Enter name of the college/university you are applying to"
                         custom_css1="mar_right"
                         custom_css2="input-field"
                         setStudentData={setStudentData}
@@ -611,7 +613,7 @@ Anirudh Singh .......... use this format only , not this data`);
                         value={studentData.stu_universityCountry}
                         studentData={studentData}
                         stu_data_obj="stu_universityCountry"
-                        placeholder="University Address"
+                        placeholder="Enter the address where the university is located "
                         custom_css1="mar_right"
                         custom_css2="input-field"
                         setStudentData={setStudentData}
@@ -620,7 +622,7 @@ Anirudh Singh .......... use this format only , not this data`);
 
                     <div className="two-fields">
                       <RadioBoxSelection
-                        heading="Student Degree"
+                        heading="Which course are you applying to?"
                         array={degrees}
                         value={studentData.stu_degreeLevel}
                         stu_data_obj="stu_degreeLevel"
@@ -630,7 +632,7 @@ Anirudh Singh .......... use this format only , not this data`);
                     </div>
                     <div className="two-fields">
                       <RadioBoxSelection
-                        heading="Student Study Subject"
+                        heading="Choose the program you are interested in"
                         array={subjects}
                         value={studentData.stu_interested_field}
                         stu_data_obj="stu_interested_field"
@@ -644,7 +646,7 @@ Anirudh Singh .......... use this format only , not this data`);
                         value={studentData.stu_interested_specialization}
                         studentData={studentData}
                         stu_data_obj="stu_interested_specialization"
-                        placeholder="Student Specialization"
+                        placeholder="Enter your area of specialization (e.g., Machine Learning, Data Science)"
                         custom_css1="mar_right"
                         custom_css2="input-field"
                         setStudentData={setStudentData}
