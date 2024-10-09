@@ -90,12 +90,12 @@ const Label = ({ label_val }) => {
   const sidebar = [
     { value: "Personal Information", id: "1" },
     { value: "Academic Background", id: "2" },
-    { value: "Professional Experience", id: "3" },
+    { value: "Professional Experience (Optional)", id: "3" },
     // { value: "Motivation and Goals", id: "4" }, //Added as checkbox in last poiint
-    { value: "Extracurricular Activities and Interests", id: "5" },
+    { value: "Extracurricular Activities and Interests (Optional)", id: "5" },
     // { value: "Skills and Certifications", id: "6" }, //SKIPED
-    { value: "Challenges and Overcoming Obstacles", id: "7" },
-    { value: "Additional Information", id: "8" },
+    { value: "Challenges and Overcoming Obstacles (Optional)", id: "7" },
+    { value: "Additional Information (Optional)", id: "8" },
     { value: "Writing Style Preferences and Submission ", id: "9" },
   ];
   
@@ -327,8 +327,8 @@ Anirudh Singh .......... use this format only , not this data`);
 
     setLoader(true);
     axios
-      .post("http://localhost:3000/generate-sop", {
-      //.post("https://sopapi.propertyease.in/generate-sop", {
+      //.post("http://localhost:3000/generate-sop", {
+      .post("https://sopapi.propertyease.in/generate-sop", {
         input1: studentData,
         input2: sampleFormat,
         input3: promptMsg,
@@ -1467,7 +1467,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       </div>
                     </div>
 
-                    <div className="two-fields">
+                    {/* <div className="two-fields">
                       <TextAreaField
                         value={studentData.stu_special_Circumstances}
                         studentData={studentData}
@@ -1477,7 +1477,7 @@ Anirudh Singh .......... use this format only , not this data`);
                         custom_css2="input-field"
                         setStudentData={setStudentData}
                       />
-                    </div>
+                    </div> */}
 
                     <div className="two-fields">
                       <NameField
@@ -1493,8 +1493,10 @@ Anirudh Singh .......... use this format only , not this data`);
 
                    
 
-
-
+                    <span className="pro_heading">
+                    Select the options you want to add to your Statement of Purpose.
+                      </span>
+                    
                     <CheckboxField
                       content={`Reason for choosing this University .`}
                       studentData={studentData}
@@ -1595,7 +1597,9 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>  */}
 
-
+<span className="pro_heading pt-2">
+Declaration & Consent
+                      </span>
                     <CheckboxField
                       content={`I declare that the information provided in this form is
                       true and accurate to the best of my knowledge. I
