@@ -3,219 +3,204 @@ import ReactMarkDown from "react-markdown";
 import axios from "axios";
 import Loader from "../../components/loader/Loader";
 import { countryList } from "../../components/Countries";
+import './style.css';
+
 const Label = ({ label_val }) => {
-  return <label className="input-field-label">{label_val}</label>;
-};
-
-const NameField = ({
-  value,
-  studentData,
-  stu_data_obj,
-  placeholder,
-  custom_css1,
-  custom_css2,
-  setStudentData,
-}) => {
-  return (
-    <div className={`input-field-wrapper ${custom_css1}`}>
-      {console.log("stu_data_obj , value : ", stu_data_obj, value)}
-
-      <input
-        type="text"
-        className={`${custom_css2}`}
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => {
-          setStudentData({ ...studentData, [stu_data_obj]: e.target.value });
-        }}
-      />
-    </div>
-  );
-};
-
-const TextAreaField = ({
-  value,
-  studentData,
-  stu_data_obj,
-  placeholder,
-  custom_css1,
-  custom_css2,
-  setStudentData,
-}) => {
-  return (
-    <div className={`input-field-wrapper ${custom_css1}`}>
-      <textarea
-        type="text"
-        rows="4"
-        cols="50"
-        className={`${custom_css2}`}
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => {
-          setStudentData({ ...studentData, [stu_data_obj]: e.target.value });
-        }}
-      ></textarea>
-    </div>
-  );
-};
-
-const CheckboxField = ({
-  content,
-  studentData,
-  setStudentData,
-  stu_data_obj_key,
-  stu_data_obj,
-}) => {
-  return (
-    <div class="form-check two-fields">
-      <input
-        class="form-check-input checkbox-field"
-        type="checkbox"
-        value=""
-        id="flexCheckDefault"
-        onChange={(e) => {
-          setStudentData({
-            ...studentData,
-            [stu_data_obj]: stu_data_obj_key == true ? false : true,
-          });
-        }}
-      />
-      {content}
-    </div>
-  );
-};
-
-const sidebar = [
-  { value: "Personal Information", id: "1" },
-  { value: "Academic Background", id: "2" },
-  { value: "Professional Experience", id: "3" },
-  // { value: "Motivation and Goals", id: "4" }, //Added as checkbox in last poiint
-  { value: "Extracurricular Activities and Interests", id: "5" },
-  // { value: "Skills and Certifications", id: "6" }, //SKIPED
-  { value: "Challenges and Overcoming Obstacles", id: "7" },
-  { value: "Additional Information", id: "8" },
-  { value: "Writing Style Preferences and Submission ", id: "9" },
-];
-
-const propertyAge = [
-  { value: "0" },
-  { value: "0-1" },
-  { value: "1-3" },
-  { value: "3-5" },
-  { value: "5-10" },
-  { value: "10+" },
-];
-
-const degrees = [
-  { value: "High School Diploma" },
-  { value: "Associate's Degree" },
-  { value: "Bachelor's Degree" },
-  { value: "Master's Degree" },
-  { value: "Doctorate" },
-  { value: "Professional Degree" },
-  { value: "Other" },
-];
-
-const subjects = [
-  { value: "Mathematics" },
-  { value: "Science" },
-  { value: "Literature" },
-  { value: "History" },
-  { value: "Art" },
-  { value: "Computer Science" },
-  { value: "Business" },
-  { value: "Psychology" },
-  { value: "Engineering" },
-  { value: "Other" },
-];
-
-const tonePreference = [
-  { value: "Formal" },
-  { value: "Conversational" },
-  { value: "Academic" },
-];
-
-const focusArea = [
-  { value: "Academic Achievements" },
-  { value: "Professional Experience" },
-  { value: "Personal Motivation" },
-];
-
-const languagesSpoken = [
-  { value: "Hindi" },
-  { value: "English" },
-  { value: "Spanish" },
-  { value: "Mandarin" },
-  { value: "French" },
-  { value: "German" },
-  { value: "Arabic" },
-  { value: "Portuguese" },
-  { value: "Russian" },
-  // { value: "Other" },
-];
-
-const RadioBoxSelection = ({
-  heading,
-  array,
-  value,
-  stu_data_obj,
-  studentData,
-  setStudentData,
-}) => {
-  return (
-    <div className="pro_flex pro_flex_1">
-      <div className="w-100 m-1 mb-3">
-        <span className="pro_heading">{heading}</span>
-        <div className="radio_brn-mian ">
-          {array.map((item) => (
-            <div
-              className={
-                value === item.value
-                  ? "pro_radio_btn_1 pro_selected"
-                  : "pro_radio_btn_1"
-              }
-              onClick={() =>
-                setStudentData({
-                  ...studentData,
-                  [stu_data_obj]: item.value,
-                })
-              }
-            >
-              {item.value}
-            </div>
-          ))}
+    return <label className="input-field-label">{label_val}</label>;
+  };
+  
+  const NameField = ({
+    value,
+    studentData,
+    stu_data_obj,
+    placeholder,
+    custom_css1,
+    custom_css2,
+    setStudentData,
+  }) => {
+    return (
+      <div className={`input-field-wrapper ${custom_css1}`}>
+        {console.log("stu_data_obj , value : ", stu_data_obj, value)}
+  
+        <input
+          type="text"
+          className={`${custom_css2}`}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => {
+            setStudentData({ ...studentData, [stu_data_obj]: e.target.value });
+          }}
+        />
+      </div>
+    );
+  };
+  
+  const TextAreaField = ({
+    value,
+    studentData,
+    stu_data_obj,
+    placeholder,
+    custom_css1,
+    custom_css2,
+    setStudentData,
+  }) => {
+    return (
+      <div className={`input-field-wrapper ${custom_css1}`}>
+        <textarea
+          type="text"
+          rows="4"
+          cols="50"
+          className={`${custom_css2}`}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => {
+            setStudentData({ ...studentData, [stu_data_obj]: e.target.value });
+          }}
+        ></textarea>
+      </div>
+    );
+  };
+  
+  const CheckboxField = ({
+    content,
+    studentData,
+    setStudentData,
+    stu_data_obj_key,
+    stu_data_obj,
+  }) => {
+    return (
+      <div class="form-check two-fields">
+        <input
+          class="form-check-input checkbox-field"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+          onChange={(e) => {
+            setStudentData({
+              ...studentData,
+              [stu_data_obj]: stu_data_obj_key == true ? false : true,
+            });
+          }}
+        />
+        {content}
+      </div>
+    );
+  };
+  
+  const sidebar = [
+    { value: "Personal Information", id: "1" },
+    { value: "Academic Background", id: "2" },
+    { value: "Professional Experience", id: "3" },
+    // { value: "Motivation and Goals", id: "4" }, //Added as checkbox in last poiint
+    { value: "Extracurricular Activities and Interests", id: "5" },
+    // { value: "Skills and Certifications", id: "6" }, //SKIPED
+    { value: "Challenges and Overcoming Obstacles", id: "7" },
+    { value: "Additional Information", id: "8" },
+    { value: "Writing Style Preferences and Submission ", id: "9" },
+  ];
+  
+  const propertyAge = [
+    { value: "0" },
+    { value: "0-1" },
+    { value: "1-3" },
+    { value: "3-5" },
+    { value: "5-10" },
+    { value: "10+" },
+  ];
+  
+  const degrees = [
+    { value: "High School Diploma" },
+    { value: "Associate's Degree" },
+    { value: "Bachelor's Degree" },
+    { value: "Master's Degree" },
+    { value: "Doctorate" },
+    { value: "Professional Degree" },
+    { value: "Other" },
+  ];
+  
+  const subjects = [
+    { value: "Mathematics" },
+    { value: "Science" },
+    { value: "Literature" },
+    { value: "History" },
+    { value: "Art" },
+    { value: "Computer Science" },
+    { value: "Business" },
+    { value: "Psychology" },
+    { value: "Engineering" },
+    { value: "Other" },
+  ];
+  
+  const tonePreference = [
+    { value: "Formal" },
+    { value: "Conversational" },
+    { value: "Academic" },
+  ];
+  
+  const focusArea = [
+    { value: "Academic Achievements" },
+    { value: "Professional Experience" },
+    { value: "Personal Motivation" },
+  ];
+  
+  const languagesSpoken = [
+    { value: "Hindi" },
+    { value: "English" },
+    { value: "Spanish" },
+    { value: "Mandarin" },
+    { value: "French" },
+    { value: "German" },
+    { value: "Arabic" },
+    { value: "Portuguese" },
+    { value: "Russian" },
+    // { value: "Other" },
+  ];
+  
+  const RadioBoxSelection = ({
+    heading,
+    array,
+    value,
+    stu_data_obj,
+    studentData,
+    setStudentData,
+  }) => {
+    return (
+      <div className="pro_flex pro_flex_1">
+        <div className="w-100 m-1 mb-3">
+          <span className="pro_heading">{heading}</span>
+          <div className="radio_brn-mian ">
+            {array.map((item) => (
+              <div
+                className={
+                  value === item.value
+                    ? "pro_radio_btn_1 pro_selected"
+                    : "pro_radio_btn_1"
+                }
+                onClick={() =>
+                  setStudentData({
+                    ...studentData,
+                    [stu_data_obj]: item.value,
+                  })
+                }
+              >
+                {item.value}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-const AiGenVer2 = () => {
-  const [loader, setLoader] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("1");
-  const [selectedTypes, setSelectedTypes] = useState([]);
-  const [selectedLang, setSelectedlang] = useState([]);
-  const [addExperince, setAddExperince] = useState(0);
-  const [selectedFoucsArea, setSelectedFoucsArea] = useState([]);
+const AiGenVer3 = () => {
+    const [loader, setLoader] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("1");
+    const [selectedTypes, setSelectedTypes] = useState([]);
+    const [selectedLang, setSelectedlang] = useState([]);
+    const [addExperince, setAddExperince] = useState(0);
+    const [selectedFoucsArea, setSelectedFoucsArea] = useState([]);
 
-  const [studentData1, setStudentData1] = useState({
-    stu_universityCountry: "",
-    stu_universityName: "",
-    stu_courseName: "",
-    stu_name: "",
-    stu_birthDate: "",
-    stu_address: "",
-    stu_fatherName: "",
-    stu_motherName: "",
-    stu_fatherOccupation: "",
-    stu_motherOccupation: "",
-    stu_familyDetails: "",
-    stu_academicDetails: "",
-    stu_interests: "",
-    stu_wordLimit: "3000",
-  });
-
-  const [promptMsg, setPromptMsg] = useState("genrate SOP ");
+    const [promptMsg, setPromptMsg] = useState("genrate SOP ");
   const [sampleFormat, setSampleormat] = useState(`Sample : 
 
      Introduction
@@ -318,85 +303,7 @@ Anirudh Singh .......... use this format only , not this data`);
     stu_consent: false,
   });
 
-  const [studentData10, setStudentData10] = useState({
-    stu_name: "John Doe",
-    stu_city: "Kurukshetra",
-    stu_phone: "9078563421",
-    stu_country: "India",
-    stu_degreeLevel: "Bachelor's",
-    stu_interested_field: "Computer Science",
-    stu_interested_specialization: "Artificial Intelligence",
-    stu_universityName: "University of Toronto",
-    stu_fatherName: "Rajesh Doe",
-    stu_motherName: "Anita Doe",
-    stu_fatherOccupation: "Engineer",
-    stu_motherOccupation: "Teacher",
-    stu_familyDetails: "One younger sister, Priya.",
-    stu_academicDetails_un: "University of Kurukshetra",
-    stu_academicDetails_degree: "Bachelor of Technology",
-    stu_academicDetails_year: "2023",
-    stu_academicDetails_gpa: "3.8",
-    stu_academicDetails_subjects:
-      "Data Structures, Algorithms, Machine Learning",
-    stu_academicDetails_awards: "Dean's List, Best Project Award 2022",
-    stu_academicDetails_research_exp:
-      "Research Assistant in AI for two semesters.",
-    stu_job_details: [
-      {
-        stu_company_name: "Tech Solutions",
-        stu_job_title: "Software Intern",
-        stu_job_duration: "3 months",
-        stu_role_description:
-          "Worked on developing web applications using React and Node.js.",
-      },
-    ],
-    stu_internship_details: [
-      {
-        stu_in_company_name: "Innovatech",
-        stu_in_job_title: "Data Science Intern",
-        stu_in_job_duration: "6 months",
-        stu_in_role_description:
-          "Assisted in building predictive models using Python.",
-      },
-    ],
-    stu_professional_achievements:
-      "Successfully led a team project that won first place in a hackathon.",
-    stu_skills_acquired: "Proficient in Java, Python, and SQL.",
-    stu_technical_skills: "Web Development, Machine Learning, Data Analysis.",
-    stu_certifications: "Certified in Python Programming from Coursera.",
-    stu_languages_spoken: "English, Hindi.",
-    stu_why_choose_program:
-      "I am passionate about AI and believe this program will equip me with advanced skills.",
-    stu_short_term_goals:
-      "To enhance my programming skills and gain practical experience.",
-    stu_long_term_goals: "To become a leading AI researcher.",
-    stu_why_this_uni:
-      "The University of Toronto is renowned for its research facilities and faculty in AI.",
-    stu_research_interests: "Deep Learning, Natural Language Processing.",
-    stu_prog_align_goals:
-      "This program aligns perfectly with my career aspirations.",
-    stu_growth_development:
-      "I aim to grow as a professional and contribute to impactful projects.",
-    stu_extracurricular_involvement:
-      "Member of the coding club and volunteer for local NGOs.",
-    stu_leadership_roles:
-      "Led a team project in college to develop a mobile app.",
-    stu_community_service:
-      "Volunteered at a local orphanage teaching computer skills.",
-    stu_hobbies: "Reading, coding, and playing chess.",
-    stu_personal_challenges:
-      "Overcame difficulties with public speaking through practice and workshops.",
-    stu_learning_from_mistakes:
-      "Learned to manage time better after missing a project deadline.",
-    stu_additional_points_highlight:
-      "Completed an online course on AI fundamentals.",
-    stu_special_Circumstances: "N/A",
-    stu_sop_tone_preference: "Formal and professional.",
-    stu_focus_areas: "Artificial Intelligence, Data Science.",
-    stu_wordLimit: "3000",
-    stu_declaration: true,
-    stu_consent: true,
-  });
+
 
   const [res, setRes] = useState("");
 
@@ -548,22 +455,13 @@ Anirudh Singh .......... use this format only , not this data`);
     );
   };
 
-  console.log(studentData);
-
   return (
-    <div>
-      {loader && <Loader />}
-      {/* <input
-        type="text"
-        //onChange={(e) => setText(e.target.value)}
-        //value={text}
-      /> */}
-
-      <div className="form-module-padding-v-2 ">
-        {/* <div className="form-module-v-2"> */}
-          <div className="form-header">
-            <div className="main-heading">AI SOP Generator</div>
-            <div className="main-content">
+    <div className='main-v3'>
+        <div className="wrapper-v3">
+      <header>
+          <div>
+          <div className="main-heading-v3">AI SOP Generator</div>
+            <div className="main-content-v3">
               Use the form below to provide your personal and academic details.
               Once completed, click "Next" to generate your Statement of Purpose
               (SOP) based on the provided information. Ensure all fields are
@@ -572,14 +470,15 @@ Anirudh Singh .......... use this format only , not this data`);
             <div
               data-orientation="horizontal"
               role="none"
-              class="horizontal-divider"
+              class="horizontal-divider-v3"
             ></div>
-          </div>
-
-          <div className="container-fluid main">
-            <div className="row">
-              <div className="col-md-3 side-bar">
-                <div className="side-bar-main">
+            </div>  
+      </header>
+      <section>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-md-3'>
+                    <div className="side-bar-main">
                   {sidebar.map((item) => (
                     <div className="side-bar-wrapper">
                       <div
@@ -593,9 +492,8 @@ Anirudh Singh .......... use this format only , not this data`);
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="col-md-9">
+                    </div>
+                    <div className="col-md-9">
                 {selectedOption === "1" && (
                   <div className="form-module-wrapper-v-2 step-1">
                     <div className="form-module-inside">
@@ -752,7 +650,9 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
                     </div>
+                    <div className="btn-wrapper-v3 d-flex justify-content-end">
                     {NextBtn("2")}
+                    </div>
 
                     {/* <div onClick={handleSubmit} className="btn sub_btn pointer">
                       Next
@@ -841,7 +741,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -872,7 +772,7 @@ Anirudh Singh .......... use this format only , not this data`);
 
                 {selectedOption === "3" && (
                   <div className="form-module-wrapper-v-2 step-1">
-                    <div className="form-module-wrapper-v-2 step-1">
+                    <div className="form-module-inside">
                     <div
                       className={
                         studentData.stu_job_details.length > 0 && `work-exp-box`
@@ -1225,7 +1125,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       </div>
                     </div>
 </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -1348,7 +1248,7 @@ Anirudh Singh .......... use this format only , not this data`);
                 )} */}
                 {selectedOption === "5" && (
                   <div className="form-module-wrapper-v-2 step-1">
-                    <div className="form-module-wrapper-v-2 step-1">
+                    <div className="form-module-inside">
                     {/* <div className="two-fields">
                       <TextAreaField
                         value={studentData.stu_extracurricular_involvement}
@@ -1396,7 +1296,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
 </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -1425,7 +1325,7 @@ Anirudh Singh .......... use this format only , not this data`);
                 )}
                 {selectedOption === "7" && (
                   <div className="form-module-wrapper-v-2 step-1">
-                    <div className="form-module-wrapper-v-2 step-1">
+                    <div className="form-module-inside">
                     <div className="two-fields">
                       <TextAreaField
                         value={studentData.stu_personal_challengese}
@@ -1450,7 +1350,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
 </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -1479,7 +1379,7 @@ Anirudh Singh .......... use this format only , not this data`);
                 )}
                 {selectedOption === "8" && (
                   <div className="form-module-wrapper-v-2 step-1">
-                    <div className="form-module-wrapper-v-2 step-1">
+                    <div className="form-module-inside">
                     <div className="two-fields">
                       <TextAreaField
                         value={studentData.stu_additional_points_highlight}
@@ -1504,7 +1404,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
 </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -1534,7 +1434,7 @@ Anirudh Singh .......... use this format only , not this data`);
 
                 {selectedOption === "9" && (
                   <div className="form-module-wrapper-v-2 step-1">
-                    <div className="form-module-wrapper-v-2 step-1">
+                    <div className="form-module-inside">
                     <div className="two-fields">
                       <RadioBoxSelection
                         heading="Tone Preference"
@@ -1754,7 +1654,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       solely for the purposes specified.
                     </div> */}
 
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between btn-wrapper-v3">
                       <div className="d-flex">
                         {/* <div
                           onClick={handleSubmit}
@@ -1774,9 +1674,9 @@ Anirudh Singh .......... use this format only , not this data`);
                   </div>
                 )}
               </div>
+                </div>
             </div>
-          </div>
-        {/* </div> */}
+      </section>
       </div>
 
       {res !== "" && (
@@ -1806,8 +1706,9 @@ Anirudh Singh .......... use this format only , not this data`);
           </div>
         </div>
       )}
+      
     </div>
-  );
-};
+  )
+}
 
-export default AiGenVer2;
+export default AiGenVer3

@@ -3,7 +3,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  box-sizing: border-box;
   color-scheme: light dark;
  
 
@@ -78,7 +78,7 @@
 }
 
 .form-module {
-  padding: 40px 40px 64px 40px;
+  /* padding: 40px 40px 64px 40px; */
   margin: 50px 220px;
   box-sizing: border-box;
     border: 2px solid #e5e7eb;
@@ -86,13 +86,13 @@
 }
 
 .form-module-wrapper {
-  padding: 20px 60px;
+  /* padding: 20px 60px; */
   /* padding-right: 100px; */
 }
 
 
 .form-module-v-2 {
-  padding: 40px 40px 64px 40px;
+  /* padding: 40px 40px 64px 40px; */
   margin: 50px 0px;
   box-sizing: border-box;
     border: 2px solid #e5e7eb;
@@ -100,23 +100,24 @@
 }
 
 .form-module-wrapper-v-2 {
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   /* padding-right: 100px; */
+  position: relative;
 }
 
 .form-module-padding-v-2 {
-  padding: 0px 50px;
+  /* padding: 0px 50px; */
 }
 
 .main {
-  padding: 60px;
-  padding-bottom: 0px;
+  /* padding: 60px;
+  padding-bottom: 0px; */
 }
 
 .form-header {
-  padding-left: 60px;
+  /* padding-left: 60px;
   padding-right: 60px;
-  padding-top: 30px;
+  padding-top: 30px; */
 }
 
 .form-header .main-heading {
@@ -137,6 +138,7 @@
   margin-top: 24px;
 }
 
+
 .sub_btn {
   background-color: #1e1d85;
   color: white;
@@ -147,7 +149,9 @@
   font-weight: 600;
   font-size: 18px;
   margin-top: 10px;
-  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
   float: right;
 }
 
@@ -161,7 +165,8 @@
   font-weight: 600;
   font-size: 18px;
   margin-top: 10px;
-  margin-right: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   float: right;
 }
 
@@ -329,6 +334,15 @@ background-color: #f8f8f8;
   padding: 15px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  min-height: 67vh;
+  overflow-x: auto;
+  
+}
+
+.form-module-inside {
+  height: 58vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .pro_flex  {
