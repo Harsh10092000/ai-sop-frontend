@@ -327,8 +327,8 @@ Anirudh Singh .......... use this format only , not this data`);
 
     setLoader(true);
     axios
-      .post("http://localhost:3000/generate-sop", {
-      //.post("https://sopapi.propertyease.in/generate-sop", {
+      //.post("http://localhost:3000/generate-sop", {
+      .post("https://sopapi.propertyease.in/generate-sop", {
         input1: studentData,
         input2: sampleFormat,
         input3: promptMsg,
@@ -1706,7 +1706,7 @@ Anirudh Singh .......... use this format only , not this data`);
           </div>
         </div>
       )}
-      
+
     </div>
   )
 }
