@@ -128,7 +128,7 @@ const Label = ({ label_val }) => {
     { value: "Business" },
     { value: "Psychology" },
     { value: "Engineering" },
-    { value: "Other" },
+    { value: "Management" },
   ];
   
   const tonePreference = [
@@ -228,6 +228,7 @@ Anirudh Singh .......... use this format only , not this data`);
     stu_interested_field: "",
     stu_interested_specialization: "",
     stu_universityName: "",
+    stu_course_name: "",
     // stu_name: "",
     // stu_city: "",
     // stu_phone: "",
@@ -301,6 +302,7 @@ Anirudh Singh .......... use this format only , not this data`);
     stu_wordLimit: "3000",
     stu_declaration: false,
     stu_consent: false,
+    stu_why_comeback: false,
   });
 
 
@@ -631,18 +633,21 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
                     <div className="two-fields">
-                      {/* <RadioBoxSelection
+                      <RadioBoxSelection
                         heading="Choose the program you are interested in"
                         array={subjects}
                         value={studentData.stu_interested_field}
                         stu_data_obj="stu_interested_field"
                         studentData={studentData}
                         setStudentData={setStudentData}
-                      /> */}
+                      />
+                    </div>
+                    <div className="two-fields">
+                      
                        <NameField
-                        value={studentData.stu_interested_field}
+                        value={studentData.stu_course_name}
                         studentData={studentData}
-                        stu_data_obj="stu_interested_field"
+                        stu_data_obj="stu_course_name"
                         placeholder="Enter the course name you applying for"
                         custom_css1="mar_right"
                         custom_css2="input-field"
@@ -673,7 +678,18 @@ Anirudh Singh .......... use this format only , not this data`);
                 )}
                 {selectedOption === "2" && (
                   <div className="form-module-wrapper-v-2 step-1">
+                     
                     <div className="form-module-inside">
+                    <div className="two-fields">
+                      <RadioBoxSelection
+                        heading="Highest/Last Degree Completed"
+                        array={degrees}
+                        value={studentData.stu_academicDetails_degree}
+                        stu_data_obj="stu_academicDetails_degree"
+                        studentData={studentData}
+                        setStudentData={setStudentData}
+                      />
+                    </div>
                     <div className="two-fields">
                       <NameField
                         value={studentData.stu_academicDetails_un}
@@ -706,16 +722,7 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
 
-                    <div className="two-fields">
-                      <RadioBoxSelection
-                        heading="Highest Degree Completed"
-                        array={degrees}
-                        value={studentData.stu_academicDetails_degree}
-                        stu_data_obj="stu_academicDetails_degree"
-                        studentData={studentData}
-                        setStudentData={setStudentData}
-                      />
-                    </div>
+                   
 
                     <div className="two-fields">
                       <NameField
@@ -1508,12 +1515,12 @@ Anirudh Singh .......... use this format only , not this data`);
                     Select the options you want to add to your Statement of Purpose.
                       </span>
                     
-                    <CheckboxField
-                      content={`Reason for choosing this University .`}
+                      <CheckboxField
+                      content={`Reasons for applying to this University`}
                       studentData={studentData}
                       setStudentData={setStudentData}
-                      stu_data_obj_key={studentData.stu_why_choose_program}
-                      stu_data_obj="stu_why_choose_program"
+                      stu_data_obj_key={studentData.stu_why_this_uni}
+                      stu_data_obj="stu_why_this_uni"
                     />
 
                     <CheckboxField
@@ -1532,12 +1539,14 @@ Anirudh Singh .......... use this format only , not this data`);
                       stu_data_obj="stu_long_term_goals"
                     />
 
-                    <CheckboxField
-                      content={`Reasons for applying to this University`}
+                   
+
+<CheckboxField
+                      content={`Reason for choosing this field .`}
                       studentData={studentData}
                       setStudentData={setStudentData}
-                      stu_data_obj_key={studentData.stu_why_this_uni}
-                      stu_data_obj="stu_why_this_uni"
+                      stu_data_obj_key={studentData.stu_why_choose_program}
+                      stu_data_obj="stu_why_choose_program"
                     />
 
                     <CheckboxField
@@ -1567,6 +1576,14 @@ Anirudh Singh .......... use this format only , not this data`);
 
 
 <CheckboxField
+                      content={`Why come back to India after completion of my study`}
+                      studentData={studentData}
+                      setStudentData={setStudentData}
+                      stu_data_obj_key={studentData.stu_why_comeback}
+                      stu_data_obj="stu_why_comeback"
+                    />
+
+<CheckboxField
                       content={`Extracurricular Involvement`}
                      
                       studentData={studentData}
@@ -1582,6 +1599,9 @@ Anirudh Singh .......... use this format only , not this data`);
                       stu_data_obj_key={studentData.stu_community_service}
                       stu_data_obj="stu_community_service"
                     />
+
+
+
 
 
 {/* <TextAreaField
