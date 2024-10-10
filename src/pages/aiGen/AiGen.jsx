@@ -8,33 +8,7 @@ const Label = ({ label_val }) => {
 };
 
 
-// field_item={propertyData.pro_open_sides}
-//                               field_item_val="pro_open_sides"
-//                               propertyData={propertyData}
-//                               setPropertyData={setPropertyData}
 
-
-                              
-
-
-
-
-const NameField = ({ value, studentData , stu_data_obj, placeholder_val, custom_css1, custom_css2, setStudentData  }) => {
-  return <div className={`input-field-wrapper ${custom_css1}`}>
-  {/* <Label label_val=" University/Institute Name
-  
-   /> */}
-  <input
-    type="text"
-    className={`${custom_css2}`}
-    value={value}
-    placeholder={placeholder_val}
-    onChange={(e) => {
-      setStudentData({ ...studentData, stu_data_obj: e.target.value });
-    }}
-  />
-</div>
-};
 
 
 
@@ -180,6 +154,9 @@ Anirudh Singh .......... use this format`);
                   setStudentData({ ...studentData, stu_universityName: e.target.value });
                 }}
               />
+
+
+              
             </div>
 
 

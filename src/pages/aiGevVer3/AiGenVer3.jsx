@@ -622,7 +622,7 @@ Anirudh Singh .......... use this format only , not this data`);
 
                     <div className="two-fields">
                       <RadioBoxSelection
-                        heading="Which course are you applying to?"
+                        heading="Which degree/diploma are you applying to?"
                         array={degrees}
                         value={studentData.stu_degreeLevel}
                         stu_data_obj="stu_degreeLevel"
@@ -631,12 +631,21 @@ Anirudh Singh .......... use this format only , not this data`);
                       />
                     </div>
                     <div className="two-fields">
-                      <RadioBoxSelection
+                      {/* <RadioBoxSelection
                         heading="Choose the program you are interested in"
                         array={subjects}
                         value={studentData.stu_interested_field}
                         stu_data_obj="stu_interested_field"
                         studentData={studentData}
+                        setStudentData={setStudentData}
+                      /> */}
+                       <NameField
+                        value={studentData.stu_interested_field}
+                        studentData={studentData}
+                        stu_data_obj="stu_interested_field"
+                        placeholder="Enter the course name you applying for"
+                        custom_css1="mar_right"
+                        custom_css2="input-field"
                         setStudentData={setStudentData}
                       />
                     </div>
