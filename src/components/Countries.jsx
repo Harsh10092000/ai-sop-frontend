@@ -1,4 +1,11 @@
 export const countryList = [
+  {
+    "name": "India",
+    "code": "IN",
+    "emoji": "🇮🇳",
+    "unicode": "U+1F1EE U+1F1F3",
+    "image": "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IN.svg"
+  },
     {
       "name": "Ascension Island",
       "code": "AC",

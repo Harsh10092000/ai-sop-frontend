@@ -624,6 +624,7 @@ Anirudh Singh .......... use this format only , not this data`);
                         className="input-field mar_right select_dropdown"
                         name="cars"
                         id="cars"
+                        defaultValue="India"
                       >
                         {countryList.map((item) => (
                           <option value={item.name}>{item.name}</option>
